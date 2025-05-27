@@ -16,11 +16,13 @@ module "stackgen_2ea25a38-fd59-40bb-ac70-3e9cacd2f073" {
   require_encryption_configuration = false
   result_output_location           = null
   set_acl_configuration            = false
-  tags                             = {}
-  workgroup_description            = null
-  workgroup_force_destroy          = false
-  workgroup_name                   = "test-wg"
-  workgroup_state                  = "ENABLED"
+  tags = {
+    owner = "Gaurav"
+  }
+  workgroup_description   = null
+  workgroup_force_destroy = false
+  workgroup_name          = "test-wg"
+  workgroup_state         = "ENABLED"
 }
 
 module "stackgen_e2c3eb90-18ac-4116-823a-027739cbbeb2" {
@@ -31,8 +33,10 @@ module "stackgen_e2c3eb90-18ac-4116-823a-027739cbbeb2" {
   enable_versioning            = true
   enable_website_configuration = false
   sse_algorithm                = "aws:kms"
-  tags                         = {}
-  website_error_document       = "404.html"
-  website_index_document       = "index.html"
+  tags = {
+    owner = "Gaurav"
+  }
+  website_error_document = "404.html"
+  website_index_document = "index.html"
 }
 
