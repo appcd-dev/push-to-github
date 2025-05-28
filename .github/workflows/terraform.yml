@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: 'Stackgen CLI'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -22,38 +22,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v3
-      with:
-        terraform_version: "1.7.0"
-
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-        aws-region: ${{ secrets.AWS_REGION }}
-
-    - name: Configure Google Cloud Credentials
-      uses: google-github-actions/auth@v2
-      with:
-        workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-        service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-
-    - name: Terraform Init
-      run: 'echo "terraform init: Action completed successfully"'
+    - name: Stackgen Provision - Plan action
+      run: 'echo "stackgen provision: Action completed successfully"'
       env:
-        TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
-        TF_VAR_gcp_project: ${{ secrets.GCP_PROJECT }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        STACKGEN_PAT: ${{ secrets.STACKGEN_PAT }}
 
-    - name: Terraform Plan
-      run: 'echo "terraform plan: Action completed successfully"'
+    - name: Stackgen Provision - Apply action
+      run: 'echo "Stackgen Provision - Apply action: Action completed successfully"'
       env:
-        TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
-        TF_VAR_gcp_project: ${{ secrets.GCP_PROJECT }}
-
-    - name: Terraform Apply
-      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
-      run: 'echo "terraform apply: Action completed successfully"'
-      env:
-        TF_VAR_aws_region: ${{ secrets.AWS_REGION }}
-        TF_VAR_gcp_project: ${{ secrets.GCP_PROJECT }} 
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+        AWS_REGION: ${{ secrets.AWS_REGION }}
+        STACKGEN_PAT: ${{ secrets.STACKGEN_PAT }}
