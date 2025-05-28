@@ -23,7 +23,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Stackgen Provision - Plan action
-      run: 'echo "stackgen provision: Action completed successfully"'
+      run: 'stackgen provision --appstack-id=7e3dbbf6-6d38-4766-9da6-6725d5d7a048 --var=`region=eu-west-3`'
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -32,7 +32,7 @@ jobs:
         STACKGEN_PAT: ${{ secrets.STACKGEN_PAT }}
 
     - name: Stackgen Provision - Apply action
-      run: 'echo "Stackgen Provision - Apply action: Action completed successfully"'
+      run: 'stackgen provision --appstack-id=7e3dbbf6-6d38-4766-9da6-6725d5d7a048 --var=`region=eu-west-3` --apply'
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
