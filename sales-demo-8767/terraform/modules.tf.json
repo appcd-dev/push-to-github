@@ -2,7 +2,7 @@
   "module": {
     "stackgen_404dfbb6-ae35-42b3-9601-8b0d3be4b8a9": {
       "block_public_access": true,
-      "bucket_name": "bucket-78992304",
+      "bucket_name": "bucket-7899230",
       "bucket_policy": "",
       "enable_versioning": true,
       "enable_website_configuration": false,
