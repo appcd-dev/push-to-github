@@ -1,0 +1,16 @@
+{
+  "module": {
+    "stackgen_5d42e787-7921-40e1-8c8d-b044556863f8": {
+      "block_public_access": true,
+      "bucket_name": "gaurav-drift-bucket",
+      "bucket_policy": "",
+      "enable_versioning": true,
+      "enable_website_configuration": false,
+      "source": "./modules/aws_s3",
+      "sse_algorithm": "aws:kms",
+      "tags": {},
+      "website_error_document": "404.html",
+      "website_index_document": "index.html"
+    }
+  }
+}
