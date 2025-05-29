@@ -1,0 +1,9 @@
+{
+  "output": {
+    "id": {
+      "description": "The unique identifier of the subnet.",
+      "sensitive": false,
+      "value": "${azurerm_subnet.this.id}"
+    }
+  }
+}

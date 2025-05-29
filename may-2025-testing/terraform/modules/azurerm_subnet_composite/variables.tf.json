@@ -1,0 +1,61 @@
+{
+  "variable": {
+    "address_prefixes": [
+      {
+        "description": "List of address prefixes for the subnet.",
+        "nullable": false,
+        "type": "list(string)"
+      }
+    ],
+    "default_outbound_access_enabled": [
+      {
+        "description": "Indicates if default outbound access is enabled.",
+        "nullable": true,
+        "type": "bool"
+      }
+    ],
+    "name": [
+      {
+        "description": "Name of the subnet.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "service_endpoint_policy_ids": [
+      {
+        "description": "Set of service endpoint policy IDs.",
+        "nullable": true,
+        "type": "list(string)"
+      }
+    ],
+    "service_endpoints": [
+      {
+        "description": "Set of service endpoints for the subnet.",
+        "nullable": true,
+        "type": "list(string)"
+      }
+    ],
+    "virtual_network_name": [
+      {
+        "description": "Name of the virtual network.",
+        "nullable": false,
+        "type": "string"
+      }
+    ],
+    "network_security_group_id": [
+      {
+        "type": "string",
+        "description": "The ID of the Network Security Group which should be associated with the Subnet.",
+        "nullable": true,
+        "default": ""
+      }
+    ],
+    "delegations": [
+      {
+        "type": "list(object({delegation_name: string, service_name: string, service_actions: list(string)}))",
+        "description": "Delegate actions to services.",
+        "nullable": true
+      }
+    ]
+  }
+}
